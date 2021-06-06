@@ -17,6 +17,24 @@ sudo usermod -aG docker jegan
 sudo su jegan
 ```
 
+### Checking your docker version
+```
+docker version
+```
+
+### You should be able to access docker commands as regular user (non-admin)
+```
+docker images
+```
+If the above command returns an empty list of docker images. Your docker is setup correctly.
+If not try 
+```
+sudo su jegan
+docker images
+```
+You need to replace user 'jegan' with your lab machine user.
+
+
 ### Installing Ansible
 For detailed instructions, refer the official documentation here https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 

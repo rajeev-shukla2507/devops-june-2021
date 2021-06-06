@@ -1,5 +1,5 @@
 # Preparing lab environment
-Your lab environment is already installed with Docker, Ansible, Jenkins, Sublime Text Editor.
+Your lab environment is already installed with Docker, Ansible, Jenkins, git and Sublime Text Editor.
 
 ### Installing Docker Community Edition
 ```

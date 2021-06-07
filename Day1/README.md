@@ -173,24 +173,22 @@ Admin@123
 ```
 Skip all other configuration by accepting defaults.
 
-Once you have created maven repository in JFrog Artifactory, copy your repository url and supply the url in settings.xml file
+Once you have created maven repository in JFrog Artifactory, copy your repository url and supply the url in pom.xml file under <distributionManagement> tag as shown below
 ```
-<settings>
-  <servers>
-    <server>
-      <id>artifactory</id>
-      <username>admin</username>
-      <password>{6M9iIepb2XQHQWs9HXmrgO4ASdh6k7LOr0sCFaJ/G6s=}</password>
-    </server>
-</settings>
-```	
-To keep things simple, I have not shown the existing settings in the above file, hence you need to retain them as it is. Just need to add a <server></server> tag with the JFrog artifactory credentials captured as shown above.
+<distributionManagement>
+	<repository>
+		<id>artifactory</id>
+		<url>http://172.17.0.2:8082/artifactory/tektutor/</url>
+	</repository>
+</distributionManagement>
 	
-In order to encryp the password, you need to use the below command
+```
+
+In order to encrypt the password, you need to use the below command
 ```
 mvn --encrypt-master-password Admin@123
 ```
-The above command will display the encrypted password. The encrypted password display in your system must be replaced in the below file.
+The above command will display the encrypted password. The encrypted password displayed in your system must be replaced in the below file.
 	
 You need to create the file /home/jegan/.m2/settings-security.xml with the below command
 ```
@@ -202,5 +200,16 @@ You need to create the file /home/jegan/.m2/settings-security.xml with the below
 ```	
 mvn --encrypt-password Admin@123
 ```
-The password displayed by the above command must be used in the settings.xml file.
+The password displayed by the above command must be used in the settings.xml file as shown below.
+```
+<settings>
+  <servers>
+    <server>
+      <id>artifactory</id>
+      <username>admin</username>
+      <password>{6M9iIepb2XQHQWs9HXmrgO4ASdh6k7LOr0sCFaJ/G6s=}</password>
+    </server>
+</settings>
+```	
+To keep things simple, I have not shown the existing settings in the above file, hence you need to retain them as it is. Just need to add a <server></server> tag with the JFrog artifactory credentials captured as shown above.
 	

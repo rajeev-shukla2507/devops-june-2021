@@ -30,7 +30,25 @@ The output should look as shown below
                 └── tektutor
                     └── HelloTest.java
                     
-                    
+
+### Create a pom.xml under Hello folder with the below content
+```
+<project>
+	
+	<modelVersion>4.0.0</modelVersion>
+
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<groupId>org.tektutor</groupId>
+	<artifactId>tektutor-hello-app</artifactId>
+	<version>1.0.0</version>
+
+</project>
+```
+
 ### Under devops-june-2021/Day1/Hello folder create the below file in src/main/java/org/tektutor/Hello.java
 ```
 package org.tektutor;
@@ -85,4 +103,30 @@ From the devops-june-2021/Day1/Hello Folder folder as regular use(non-admin), tr
 The below command will delete the target folder and does a compile rebuild
 ```
 mvn clean compile
+```
+### Integrating JUnit Test Framework into Hello java project
+Update your pom.xml as shown 
+```
+<project>
+	
+	<modelVersion>4.0.0</modelVersion>
+
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<groupId>org.tektutor</groupId>
+	<artifactId>tektutor-hello-app</artifactId>
+	<version>1.0.0</version>
+
+	<dependencies>
+		<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.12</version>
+		</dependency>
+	</dependencies>
+
+</project>
 ```

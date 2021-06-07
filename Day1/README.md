@@ -130,3 +130,7 @@ Update your pom.xml as shown
 
 </project>
 ```
+### To compile the application and test sources and then invoke test cases
+```
+mvn test
+```

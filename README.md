@@ -3,7 +3,6 @@ Already your lab environment is already installed with Docker, Ansible, Jenkins,
 
 Your lab environment is already installed with Docker, Ansible, Jenkins, Sublime Text Editor, git and Chrome Web browser.
 The below instructions are just for your curiosity, hence you don't need to perform any installations.
->>>>>>> 1183daa2771aa88b8262ff14917b0c7b909b4f24
 
 ### Installing Docker Community Edition
 For detailed instructions, refer the official documentation here

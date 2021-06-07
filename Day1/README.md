@@ -72,3 +72,13 @@ cd /home/jegan/devops-june-2021/Day1/Hello/target/classes
 tree
 java org.tektutor.Hello
 ````
+### Deleting target folder using maven
+```
+mvn clean
+```
+
+### Performing a clean build
+The below command will delete the target folder and does a compile rebuild
+```
+mvn clean compile
+```

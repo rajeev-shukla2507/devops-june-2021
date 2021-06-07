@@ -73,11 +73,15 @@ tree
 java org.tektutor.Hello
 ````
 ### Deleting target folder using maven
+From the devops-june-2021/Day1/Hello Folder folder as regular use(non-admin), try this
+
 ```
 mvn clean
 ```
 
 ### Performing a clean build
+From the devops-june-2021/Day1/Hello Folder folder as regular use(non-admin), try this
+
 The below command will delete the target folder and does a compile rebuild
 ```
 mvn clean compile

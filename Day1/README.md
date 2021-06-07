@@ -283,3 +283,28 @@ From devops-june-2021/Day1/CRM folder, try the below command
 ```
 mvn help:effective-pom
 ```
+
+### Setting up SonarQube Server using docker
+```
+docker run -d --name sonar --hostname sonar sonarqube:latest
+```
+
+### Finding IP address of SonarQube container
+```
+docker inspect sonar | grep IPA
+```
+	
+### Check if the sonarqube container is running
+```
+docker ps
+```
+	
+### Accessing SonarQube Web Interface from Web browser
+```
+http://172.17.0.3:9000
+```
+Login Credentials
+username - admin
+password - admin
+
+You may change the password to Admin@123

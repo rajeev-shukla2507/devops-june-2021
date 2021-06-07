@@ -1,7 +1,6 @@
 # Preparing lab environment
-<<<<<<< HEAD
-Your lab environment is already installed with Docker, Ansible, Jenkins, git and Sublime Text Editor.
-=======
+Already your lab environment is already installed with Docker, Ansible, Jenkins, git and Sublime Text Editor.
+
 Your lab environment is already installed with Docker, Ansible, Jenkins, Sublime Text Editor, git and Chrome Web browser.
 The below instructions are just for your curiosity, hence you don't need to perform any installations.
 >>>>>>> 1183daa2771aa88b8262ff14917b0c7b909b4f24

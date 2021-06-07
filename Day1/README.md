@@ -221,3 +221,8 @@ Once deployed you may see the deployed artifacts from your web browser at the be
 ```
 http://172.17.0.2:8082/artifactory/tektutor/
 ```
+### Inspecting effective pom
+From devops-june-2021/Day1/CRM folder, try the below command
+```
+mvn help:effective-pom
+```

@@ -29,6 +29,27 @@ The output should look as shown below
             └── org
                 └── tektutor
                     └── HelloTest.java
+                    
+                    
+### Under devops-june-2021/Day1/Hello folder create the below file in src/main/java/org/tektutor/Hello.java
+```
+package org.tektutor;
+
+public class Hello {
+
+	public String sayHello() {
+		return "Hello DevOps!";
+	}
+
+	public static void main(String[] args) {
+		
+		Hello hello = new Hello();
+		System.out.println ( hello.sayHello() );
+
+	}
+
+}
+```
 
 ### Listing Maven compiler plugin goals and argument details
 You may type any one of the below commands

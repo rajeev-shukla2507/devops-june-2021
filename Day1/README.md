@@ -135,6 +135,21 @@ Update your pom.xml as shown
 mvn test
 ```
 
+### Listing default life-cycle phases
+```
+mvn help:describe -Dcmd=compile
+```
+
+### Listing clean life-cycle phase
+```
+mvn help:describe -Dcmd=clean
+```
+
+### Listing site life-cycle phases
+```
+mvn help:describe -Dcmd=site
+```
+
 ### Setup JFrog Artifactory
 
 #### Download JFrog Artifactory docker image

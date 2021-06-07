@@ -36,3 +36,10 @@ You may type any one of the below commands
 mvn help:describe -Dplugin=org.apache.maven.plugins:maven-compiler-plugin:3.1 -Ddetail
 mvn help:describe -Dplugin=compiler -Ddetail
 ```
+
+### Compiling Hello Maven Project
+From the devops-june-2021/Day1/Hello Folder folder as regular use(non-admin), try this
+```
+mvn compile
+```
+When you type the above command, maven will look for pom.xml file in the current directory, otherwise maven compile will fail.

@@ -29,3 +29,10 @@ The output should look as shown below
             └── org
                 └── tektutor
                     └── HelloTest.java
+
+### Listing Maven compiler plugin goals and argument details
+You may type any one of the below commands
+```
+mvn help:describe -Dplugin=org.apache.maven.plugins:maven-compiler-plugin:3.1 -Ddetail
+mvn help:describe -Dplugin=compiler -Ddetail
+```

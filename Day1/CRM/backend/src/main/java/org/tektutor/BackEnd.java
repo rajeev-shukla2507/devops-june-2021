@@ -1,9 +1,9 @@
 package org.tektutor;
 
-public class FrontEnd {
+public class BackEnd {
 
 	public String getModuleName() {
-		return "FrontEnd Module";
+		return "BackEnd Module";
 	}
 
-} 
+}

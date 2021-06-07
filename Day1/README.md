@@ -2,7 +2,7 @@
 
 ### Create a Hello console java application using Maven as a build tool
 As a regular user (non-admin)
-```
+```devops-june-2021/Day1/Hello/target/classes
 mkdir Hello
 cd Hello
 mkdir -p src/main/java/org/tektutor
@@ -65,7 +65,7 @@ mvn compile
 ```
 When you type the above command, maven will look for pom.xml file in the current directory, otherwise maven compile will fail.
 
-### Executing the newly compiler Hello java application
+### Executing the newly compiled Hello java application
 Assuming you are in /home/jegan folder
 ````
 cd /home/jegan/devops-june-2021/Day1/Hello/target/classes

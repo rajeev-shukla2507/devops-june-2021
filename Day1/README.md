@@ -64,3 +64,11 @@ From the devops-june-2021/Day1/Hello Folder folder as regular use(non-admin), tr
 mvn compile
 ```
 When you type the above command, maven will look for pom.xml file in the current directory, otherwise maven compile will fail.
+
+### Executing the newly compiler Hello java application
+Assuming you are in /home/jegan folder
+````
+cd /home/jegan/devops-june-2021/Day1/Hello/target/classes
+tree
+java org.tektutor.Hello
+````

@@ -134,3 +134,90 @@ Update your pom.xml as shown
 ```
 mvn test
 ```
+
+### Setup JFrog Artifactory
+
+#### Download JFrog Artifactory docker image
+```
+docker pull docker.bintray.io/jfrog/artifactory-oss:latest
+```
+
+#### Start the JFrog Artifactory container
+```
+docker run --name artifactory -d -p 8081:8081 docker.bintray.io/jfrog/artifactory-oss:latest
+```
+
+#### Check if the JFrog Artifactory is running
+```
+docker ps
+```
+
+#### Finding the IP Address of JFrog Artifactory container
+```
+docker inspect artifactory | grep IPA
+```
+
+#### Accessing JFrog Artifactory Web console
+From your lab machine Firefox or Chrome web browser
+```
+http://172.17.0.2:8081
+```
+Default Login Creditials are
+```
+username - admin
+password - password
+```
+When it prompts to change the password, you may change it to
+```
+Admin@123
+```
+Skip all other configuration by accepting defaults.
+
+Once you have created maven repository in JFrog Artifactory, copy your repository url and supply the url in pom.xml file under <distributionManagement> tag as shown below
+```
+<distributionManagement>
+	<repository>
+		<id>artifactory</id>
+		<url>http://172.17.0.2:8082/artifactory/tektutor/</url>
+	</repository>
+</distributionManagement>
+	
+```
+
+In order to encrypt the password, you need to use the below command
+```
+mvn --encrypt-master-password Admin@123
+```
+The above command will display the encrypted password. The encrypted password displayed in your system must be replaced in the below file.
+	
+You need to create the file /home/jegan/.m2/settings-security.xml with the below command
+```
+<settingsSecurity>                                                                                                                    	<master>{MK6ZKmMIGbUHrg4wbQcXV7u+bopGzwnMJ2BYgcfEbck=}</master>                                                             
+</settingsSecurity> 	
+```
+
+#### Generate server password encryption
+```	
+mvn --encrypt-password Admin@123
+```
+The password displayed by the above command must be used in the settings.xml file as shown below.
+```
+<settings>
+  <servers>
+    <server>
+      <id>artifactory</id>
+      <username>admin</username>
+      <password>{6M9iIepb2XQHQWs9HXmrgO4ASdh6k7LOr0sCFaJ/G6s=}</password>
+    </server>
+</settings>
+```	
+To keep things simple, I have not shown the existing settings in the above file, hence you need to retain them as it is. Just need to add a <server></server> tag with the JFrog artifactory credentials captured as shown above.
+	
+### Deploy Hello project artifacts to JFrog artifactory
+```
+mvn deploy
+```
+Once deployed you may see the deployed artifacts from your web browser at the below URL
+```
+http://172.17.0.2:8082/artifactory/tektutor/
+```

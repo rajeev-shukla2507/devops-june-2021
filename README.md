@@ -21,7 +21,7 @@ sudo su jegan
 
 ### Checking your docker version
 ```
-docker version
+docker --version
 ```
 
 ### You should be able to access docker commands as regular user (non-admin)

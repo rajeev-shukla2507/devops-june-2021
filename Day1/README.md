@@ -213,3 +213,11 @@ The password displayed by the above command must be used in the settings.xml fil
 ```	
 To keep things simple, I have not shown the existing settings in the above file, hence you need to retain them as it is. Just need to add a <server></server> tag with the JFrog artifactory credentials captured as shown above.
 	
+### Deploy Hello project artifacts to JFrog artifactory
+```
+mvn deploy
+```
+Once deployed you may see the deployed artifacts from your web browser at the below URL
+```
+http://172.17.0.2:8082/artifactory/tektutor/
+```

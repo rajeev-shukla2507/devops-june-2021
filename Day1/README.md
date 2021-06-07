@@ -134,3 +134,39 @@ Update your pom.xml as shown
 ```
 mvn test
 ```
+
+### Setup JFrog Artifactory
+
+#### Download JFrog Artifactory docker image
+```
+docker pull docker.bintray.io/jfrog/artifactory-oss:latest
+```
+
+#### Start the JFrog Artifactory container
+```
+docker run --name artifactory -d -p 8081:8081 docker.bintray.io/jfrog/artifactory-oss:latest
+```
+
+#### Check if the JFrog Artifactory is running
+```
+docker ps
+```
+
+#### Finding the IP Address of JFrog Artifactory container
+```
+docker inspect artifactory | grep IPA
+```
+
+#### Accessing JFrog Artifactory Web console
+From your lab machine Firefox or Chrome web browser
+```
+http://172.17.0.2:8081
+```
+Default Login Creditials are
+username - admin
+password - password
+
+When it prompts to change the password, you may change it to
+Admin@123
+
+Skip all other configuration by accepting defaults.

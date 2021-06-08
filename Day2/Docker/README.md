@@ -67,7 +67,7 @@ docker ps
 docker stop ubuntu1 && docker rm ubuntu1
 ```
 
-### Deleting a contianer forcibly
+### Deleting a container forcibly
 ```
 docker rm -f ubuntu1
 ```

@@ -194,3 +194,69 @@ curl http://172.17.0.2:80
 ```
 Using the same url http://172.17.0.2:80 you may access from a web browser on the same machine where the container is running.
 As the containers are assigned with Private IPs they aren't accessible outside the machine where they are running.
+
+
+### Volume mounting
+```
+docker run -d --name mysql1 --hostname mysql1 -v /tmp/mydata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root mysql:latest
+```
+
+### Get inside the 'mysql1' container
+```
+docker exec -it mysql1 sh
+```
+
+### Connect to mysql server
+```
+mysql -u root -p
+```
+When prompts for password, type root as the password.
+
+### Create Database, table and insert some rows
+```
+CREATE DATABASE tektutor;
+USE tektutor;
+CREATE TABLE training;
+
+INSERT INTO training VALUES ( 1, "DevOps" "5 Days" );
+INSERT INTO training VALUES ( 2, "Qt Programming" "5 Days" );
+INSERT INTO training VALUES ( 3, "Apache Kafka" "5 Days" );
+
+SELECT * FROM training;
+```
+
+### Now come out of the container
+```
+exit
+exit
+```
+
+### Delete the 'mysql1' container
+```
+docker rm -f mysql1
+```
+
+### Create a new mysql container and mount the same host path
+```
+docker run -d --name mysql2 --hostname mysql2 -v /tmp/mydata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root mysql:latest
+```
+
+### Get inside the 'mysql2' container
+```
+docker exec -it mysql2 bash
+```
+
+### Connect to mysql server
+```
+mysql -u root -p
+```
+When prompted for password, type root as the password.
+
+### Check if the 'tektutor' database and 'training' table and its records are intact
+```
+SHOW DATABASES;
+USE tektutor;
+SHOw TABLES;
+SELECT * FROM training;
+```
+The expectation is, you should see tektutor, training table and its records safe as the mysql data is stored outside the container storage.

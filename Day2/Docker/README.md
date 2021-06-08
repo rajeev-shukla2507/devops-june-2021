@@ -170,7 +170,7 @@ ping 172.19.0.2
 
 ### From 'c2' container you may ping 'c1'
 ```
-ping 172.18.0.2
+ping 172.19.0.3
 ```
 
 ### Create an nginx container

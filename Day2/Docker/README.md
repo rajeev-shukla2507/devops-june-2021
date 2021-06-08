@@ -172,3 +172,25 @@ ping 172.19.0.2
 ```
 ping 172.18.0.2
 ```
+
+### Create an nginx container
+```
+docker run -d --name web1 --hostname web1 nginx:1.18
+```
+
+### Check if the web1 container is running
+```
+docker ps
+```
+
+### Find the IP Address of the web1 container
+```
+docker inspect web1 | grep IA
+```
+
+### Access the nginx web1 container web page
+```
+curl http://172.17.0.2:80
+```
+Using the same url http://172.17.0.2:80 you may access from a web browser on the same machine where the container is running.
+As the containers are assigned with Private IPs they aren't accessible outside the machine where they are running.

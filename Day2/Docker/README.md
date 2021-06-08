@@ -89,3 +89,86 @@ docker exec -it ubuntu2 bash
 hostname -i
 exit
 ```
+
+### Listing all then networks docker supports
+```
+docker network ls
+```
+
+### Creating your own bridge network
+```
+docker network create my-network-1
+```
+
+### Creating a new container and connecting to my-network-1
+```
+docker run -dit --name c1 --hostname c1 --network=my-network-1 ubuntu:16.04 bash
+```
+
+### Find IP Address of c1 container
+```
+docker inspect c1 | grep IPA
+```
+Assuming IP Address of c1 container is 172.18.0.2
+
+### Creating another bridge network
+```
+docker network create my-network-2
+```
+
+### Creating a new container and connecting to my-network-1
+```
+docker run -dit --name c2 --hostname c2 --network=my-network-2 ubuntu:16.04 bash
+```
+
+
+### Find IP Address of c2 container
+```
+docker inspect c2 | grep IPA
+```
+Assuming IP Address of c2 container is 172.19.0.2
+
+### Now get inside c1 container
+```
+docker exec -it c1 bash
+```
+
+### Install ifconfig and ping utility inside c1 container
+```
+apt-get update && apt-get install -y net-tools iputils-ping
+```
+
+### From another terminal, get inside c2 container
+```
+docker exec -it c2 bash
+```
+
+### Install ifconfig and ping utility inside c2 container
+```
+apt update && apt install -y net-tools iputils-ping
+```
+### From the 'c1' container terminal ping 'c2' container
+```
+ping 172.18.0.2
+```
+You may observe, 'c2; container isn't reachable from 'c1' container as they belong to different networks.
+
+### You may connect 'c1' container to my-network-2 so that 'c1' and 'c2' will be able to communicate with each other.
+```
+docker network connect my-network-2 c1
+```
+
+### Now 'c1' container is connected to two networks and has two NIC (Network Interface cards).
+```
+docker inspect c1
+```
+
+### From 'c1' container you may ping 'c2'
+```
+ping 172.19.0.2
+```
+
+### From 'c2' container you may ping 'c1'
+```
+ping 172.18.0.2
+```

@@ -135,6 +135,21 @@ Update your pom.xml as shown
 mvn test
 ```
 
+### Listing default life-cycle phases
+```
+mvn help:describe -Dcmd=compile
+```
+
+### Listing clean life-cycle phase
+```
+mvn help:describe -Dcmd=clean
+```
+
+### Listing site life-cycle phases
+```
+mvn help:describe -Dcmd=site
+```
+
 ### Setup JFrog Artifactory
 
 #### Download JFrog Artifactory docker image
@@ -221,3 +236,75 @@ Once deployed you may see the deployed artifacts from your web browser at the be
 ```
 http://172.17.0.2:8082/artifactory/tektutor/
 ```
+
+### Deployment Configuration for CRM parent pom
+```
+<project>
+	<modelVersion>4.0.0</modelVersion>
+
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<groupId>org.tektutor</groupId>
+	<artifactId>crm</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>frontend</module>
+		<module>businesslayer</module>
+		<module>backend</module>
+		<module>main</module>
+	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<distributionManagement>
+		<repository>
+			<id>artifactory</id>
+			<url>http://172.17.0.2:8082/artifactory/tektutor/</url>
+		</repository>
+	</distributionManagement>
+
+</project>
+```
+
+### Inspecting effective pom
+From devops-june-2021/Day1/CRM folder, try the below command
+```
+mvn help:effective-pom
+```
+
+### Setting up SonarQube Server using docker
+```
+docker run -d --name sonar --hostname sonar sonarqube:latest
+```
+
+### Finding IP address of SonarQube container
+```
+docker inspect sonar | grep IPA
+```
+	
+### Check if the sonarqube container is running
+```
+docker ps
+```
+	
+### Accessing SonarQube Web Interface from Web browser
+```
+http://172.17.0.3:9000
+```
+Login Credentials
+username - admin
+password - admin
+
+You may change the password to Admin@123

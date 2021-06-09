@@ -1,6 +1,5 @@
 - name: First Play
   hosts: ubuntu
-  gather_facts: no
   tasks:
    - name: Ping ubuntu ansible nodes
      ping:

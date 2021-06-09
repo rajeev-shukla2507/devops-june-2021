@@ -1,0 +1,8 @@
+- name: Demonstrates installation software on windows nodes
+  hosts: windows
+  tasks:
+    - name: Install notepad plus plus
+      win_chocolatey: name=notepadplusplus state=latest
+
+    - name: Install Adobe Acrobat Reader 
+      win_chocolatey: name=adobereader state=latest

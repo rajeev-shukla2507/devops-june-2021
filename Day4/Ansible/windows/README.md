@@ -8,7 +8,7 @@ $file = "$env:temp\ConfigureRemotingForAnsible.ps1"
 (New-Object -TypeName System.Net.WebClient).DownloadFile($url, $file)
 
 powershell.exe -ExecutionPolicy ByPass -File $file
-```install-notepad-and-acrobatreader.yml
+```
 
 ### Verify if WinRM listeners are running
 If WinRM is installed and running, you will see two listeners one at port 5985 and the other at 5986.

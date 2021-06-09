@@ -9,7 +9,7 @@ when you execute ssh-keygen accept all defaults by hitting enter - 3 times :)
 ```
 cd devops-june-2021/Day3/ubuntu-ansible
 ssh-keygen
-cp /home/jegan/.ssh/id_rs.pub authorized_keys
+cp /home/jegan/.ssh/id_rsa.pub authorized_keys
 docker build -t tektutor/ansible-ubuntu .
 ```
 
@@ -18,7 +18,7 @@ Make sure you are replaced the authorized_keys with your public key(id_rsa.pub f
 ### Building custom centos ansible node image
 ```
 cd devops-june-2021/Day3/centos-ansible
-cp /home/jegan/.ssh/id_rs.pub authorized_keys
+cp /home/jegan/.ssh/id_rsa.pub authorized_keys
 docker build -t tektutor/ansible-centos .
 ```
 

@@ -17,7 +17,7 @@ docker build -t tektutor/ansible-centos .
 ```
 docker images
 ```
-If all went smooth, you are expected see "tektutor/ansible-ubuntu:latest" and "tektutor/ansible-centos:latest" images.
+If all went smooth, you are expected to see "tektutor/ansible-ubuntu:latest" and "tektutor/ansible-centos:latest" images.
 
 ### Creating ubuntu ansible node containers from our custom image
 ```

@@ -6,7 +6,7 @@ cp /home/jegan/.ssh/id_rs.pub authorized_keys
 docker build -t tektutor/ansible-ubuntu .
 ```
 
-### Building custom centos ansible node image```
+### Building custom centos ansible node image
 ```
 cd devops-june-2021/Day3/centos-ansible
 cp /home/jegan/.ssh/id_rs.pub authorized_keys

@@ -66,3 +66,10 @@ ssh -p 2004 root@localhost
 When prompted with question "Warning: Are you sure you want to continue connecting (yes/no):" type yes.
 When you type yes the finger-print of the ansible node will be added to your known_hosts files at /home/jegan/.ssh/known_hosts.
 In the place of 'localhost' you may type the IP Address of the docker server machine.
+
+
+### See if ansible ping works
+```
+cd devops-june-2021/Day3/Ansible
+ansible -i hosts all -m ping
+```

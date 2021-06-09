@@ -13,7 +13,7 @@ RUN sed -ri 's/^session\s+required\s+pam_loginuid.so$/session optional pam_login
 
 # Disable root login &
 # Disable password login, only allow public key. 
-COPY sshd_config /etc/ssh/sshd_config
+#COPY sshd_config /etc/ssh/sshd_config
 COPY sudoers /etc/sudoers
 
 RUN mkdir -p /root/.ssh

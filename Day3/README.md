@@ -39,7 +39,7 @@ docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/a
 docker ps
 ```
 
-### Verify if you are able to login with password onto the 'ubuntu1' and 'ubuntu2' containers via ssh
+### Verify if you are able to login without password onto the 'ubuntu1' and 'ubuntu2' containers via ssh
 ```
 ssh -p 2001 root@localhost
 ssh -p 2001 root@localhost
@@ -57,7 +57,7 @@ docker run -d --name centos2 --hostname centos2 -p 2004:22 -p 8004:80 tektutor/a
 docker ps
 ```
 
-### Verify if you are able to login with password onto the 'ubuntu1' and 'ubuntu2' containers via ssh
+### Verify if you are able to login without password onto the 'ubuntu1' and 'ubuntu2' containers via ssh
 ```
 ssh -p 2003 root@localhost
 ssh -p 2004 root@localhost

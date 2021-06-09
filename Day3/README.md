@@ -5,12 +5,14 @@ git pull
 ```
 
 ### Building custom ubuntu ansible node image
+when you execute ssh-keygen accept all defaults by hitting enter - 3 times :)
 ```
 cd devops-june-2021/Day3/ubuntu-ansible
 ssh-keygen
 cp /home/jegan/.ssh/id_rs.pub authorized_keys
 docker build -t tektutor/ansible-ubuntu .
 ```
+
 Make sure you are replaced the authorized_keys with your public key(id_rsa.pub from /home/jegan/.ssh/id_rsa.pub)
 
 ### Building custom centos ansible node image

@@ -69,6 +69,7 @@ In the place of 'localhost' you may type the IP Address of the docker server mac
 
 
 ### See if ansible ping works
+The assumption is that you have already started 'ubuntu1' and 'ubuntu2' containers and you are able to manually ssh into them as decribed in the above steps.
 ```
 cd devops-june-2021/Day3/Ansible
 ansible -i hosts all -m ping

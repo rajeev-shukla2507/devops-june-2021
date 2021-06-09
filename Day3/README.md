@@ -1,3 +1,9 @@
+### Pull the delta changes from https://github.com/tektutor/devops-june-2021.git
+```
+cd devops-june-2021
+git pull
+```
+
 ### Building custom ubuntu ansible node image
 ```
 cd devops-june-2021/Day3/ubuntu-ansible

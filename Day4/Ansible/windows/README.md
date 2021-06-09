@@ -15,3 +15,14 @@ If WinRM is installed and running, you will see two listeners one at port 5985 a
 ```
 winrm enumerate winrm/config/Listener
 ```
+
+### Configure Basic Authentication in Windows Ansible Node, run this from PowerShell
+```
+Set-Item -Path WSMan:\localhost\Service\Auth\Basic -Value $true
+```
+
+### On the Ansible Controller Machine (ACM) install pywinrm
+```
+pip install "pywinrm>=0.3.0"
+```
+

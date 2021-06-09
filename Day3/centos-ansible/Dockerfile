@@ -1,7 +1,8 @@
-FROM centos:6.7 
+FROM centos:8
 MAINTAINER Jeganathan Swaminathan <jegan@tektutor.org> <http://www.tektutor.org> 
 
-RUN yum install -y openssh-server openssh-clients
+RUN yum install -y openssh-server openssh-clients 
+RUN ln -s -f /usr/libexec/platform-python3.6 /usr/bin/python 
 
 # Set the password of root user to root
 RUN echo 'root:root' | chpasswd
@@ -21,8 +22,7 @@ COPY authorized_keys /root/.ssh/authorized_keys
 # Add sshd running directory.
 RUN mkdir -m 700 /var/run/sshd
 
-# Add ssh key directory.
-RUN /sbin/service sshd start && /sbin/service sshd stop
+RUN ssh-keygen -A && rm -f /run/nologin
 
 EXPOSE 22
 EXPOSE 80

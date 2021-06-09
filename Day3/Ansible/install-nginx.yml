@@ -1,5 +1,25 @@
 - name: Install nginx, configure nginx document root folder, deploy custom html page
   hosts: ubuntu
+  gather_facts: yes 
+  vars:
+    - greeting_msg: DevOps!
+    - provisioner_tool: Docker
+    - conf_mgr_tool: Ansible
   tasks:
     - name: Install nginx into ubuntu ansible nodes
       apt: name=nginx state=latest update_cache=yes
+   
+    - name: Start nginx service
+      shell: service nginx start
+
+    - name: Let's create our custom document root folder
+      file: path=/var/html state=directory mode=0755
+
+    - name: Configure nginx to pick web page from our custom path
+      copy: src=default dest=/etc/nginx/sites-available/default mode=777 backup=yes
+
+    - name: Restart nginx to apply config changes
+      shell: /etc/init.d/nginx restart
+
+    - name: Deploy our custom html page
+      template: src=index.html.j2 dest=/var/html/index.html

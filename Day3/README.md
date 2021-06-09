@@ -46,6 +46,7 @@ ssh -p 2001 root@localhost
 ```
 When prompted with question "Warning: Are you sure you want to continue connecting (yes/no):" type yes.
 When you type yes the finger-print of the ansible node will be added to your known_hosts files at /home/jegan/.ssh/known_hosts.
+In the place of 'localhost' you may type the IP Address of the docker server machine.
 
 ### Creating centos ansible node containers from our custom image
 ```
@@ -64,3 +65,4 @@ ssh -p 2004 root@localhost
 ```
 When prompted with question "Warning: Are you sure you want to continue connecting (yes/no):" type yes.
 When you type yes the finger-print of the ansible node will be added to your known_hosts files at /home/jegan/.ssh/known_hosts.
+In the place of 'localhost' you may type the IP Address of the docker server machine.

@@ -11,6 +11,7 @@ ssh-keygen
 cp /home/jegan/.ssh/id_rs.pub authorized_keys
 docker build -t tektutor/ansible-ubuntu .
 ```
+Make sure you are replaced the authorized_keys with your public key(id_rsa.pub from /home/jegan/.ssh/id_rsa.pub)
 
 ### Building custom centos ansible node image
 ```

@@ -74,3 +74,15 @@ The assumption is that you have already started 'ubuntu1' and 'ubuntu2' containe
 cd devops-june-2021/Day3/Ansible
 ansible -i hosts all -m ping
 ```
+### Ansible ad-hoc command internals - How ansible runs the ad-hoc commands?
+```
+1. Ansible will read the inventory for connection details
+2. Ansible does an SSH to ansible node using the connection details retrieved from inventory file.
+3. Ansible will create a tmp folder in ACM and tmp folder in Ansible Node
+4. Ansible will copy the Ansible Module (for instance ping.py) from module path to the temp directory in the ACM machine. Ansible then will include the ansible specific python code used in the ping.py and create a bulky ping.py file in the ACM.
+5. Ansible uses either sftp/scp and then copies the bulky ping.py file into the tmp folder on the Ansible Node.
+6. Ansible will remote execute the bulky ping.py file on the Ansible Node and stores the output in some variables.
+7. Ansible now will clean up the tmp folder on the Ansible node and the ACM.
+8. Finally on the ACM, Ansible gives a summary of the outcome.
+```
+

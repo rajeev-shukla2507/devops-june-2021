@@ -1,0 +1,10 @@
+- name: Install nginx, configure nginx document root folder, deploy custom html page
+  hosts: all 
+  gather_facts: yes 
+  vars_files:
+    - nginx-conf.yml
+  tasks:
+    - include: "install-nginx-{{ansible_distribution|lower}}.yml"
+    - include: "configure-nginx-{{ansible_distribution|lower}}.yml"
+    - include: "restart-nginx-{{ansible_distribution|lower}}.yml"
+    - include: common-nginx-tasks.yml

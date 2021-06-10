@@ -4,6 +4,7 @@
   vars:
     - greeting_msg: DevOps!
     - conf_mgr_tool: Ansible
+    - provisioner_tool: Docker
   tasks:
     - name: Install nginx into ubuntu ansible nodes
       apt: name=nginx state=latest update_cache=yes

@@ -1,0 +1,2 @@
+- name: Configure nginx to pick web page from our custom path in centos
+  copy: src=nginx.conf dest=/etc/nginx/nginx.conf mode=777 backup=yes

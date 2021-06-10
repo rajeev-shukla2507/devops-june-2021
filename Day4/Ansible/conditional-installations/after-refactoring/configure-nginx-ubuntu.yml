@@ -1,0 +1,2 @@
+- name: Configure nginx to pick web page from our custom path in ubuntu
+  copy: src=default dest=/etc/nginx/sites-available/default mode=777 backup=yes

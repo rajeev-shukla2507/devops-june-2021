@@ -1,0 +1,50 @@
+- name: Install nginx, configure nginx document root folder, deploy custom html page
+  hosts: all 
+  gather_facts: yes 
+  vars:
+    - greeting_msg: DevOps!
+    - conf_mgr_tool: Ansible
+    - provisioner_tool: Docker
+  tasks:
+    - name: Install nginx into ubuntu ansible nodes
+      when: ( ansible_distribution == "Ubuntu" and ansible_os_family == "Debian" )
+      apt: name=nginx state=latest update_cache=yes
+
+    - name: Install Extra Package for Enterprise Linux (EPEL) in centos ansible nodes
+      when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" )
+      yum: name=epel-release state=latest 
+
+    - name: Install nginx into centos ansible nodes
+      when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" )
+      yum: name=nginx state=latest update_cache=yes
+   
+    - name: Start nginx service in ubuntu ansible nodes
+      when: ( ansible_distribution == "Ubuntu" and ansible_os_family == "Debian" )
+      shell: service nginx start
+
+    - name: Start nginx service in centos ansible nodes
+      when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" )
+      shell: /usr/sbin/nginx
+      ignore_errors: true 
+
+    - name: Let's create our custom document root folder
+      file: path=/var/html state=directory mode=0755
+
+    - name: Configure nginx to pick web page from our custom path in ubuntu
+      when: ( ansible_distribution == "Ubuntu" and ansible_os_family == "Debian" )
+      copy: src=default dest=/etc/nginx/sites-available/default mode=777 backup=yes
+
+    - name: Configure nginx to pick web page from our custom path in centos
+      when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" )
+      copy: src=nginx.conf dest=/etc/nginx/nginx.conf mode=777 backup=yes
+
+    - name: Restart nginx to apply config changes
+      when: ( ansible_distribution == "Ubuntu" and ansible_os_family == "Debian" )
+      shell: /etc/init.d/nginx restart
+
+    - name: Restart nginx to apply config changes
+      when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" )
+      shell: /usr/sbin/nginx -s reload
+
+    - name: Deploy our custom html page
+      template: src=index.html.j2 dest=/var/html/index.html

@@ -6,3 +6,9 @@
 
     - name: Install Adobe Acrobat Reader 
       win_chocolatey: name=adobereader state=latest
+
+    - name: Install Sublime Text 3 Editor 
+      win_chocolatey: name=sublimetext3 state=latest
+
+    - name: Install Atom Text Editor 
+      win_chocolatey: name=atom state=latest

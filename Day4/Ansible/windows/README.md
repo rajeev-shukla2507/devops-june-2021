@@ -26,3 +26,14 @@ Set-Item -Path WSMan:\localhost\Service\Auth\Basic -Value $true
 pip install "pywinrm>=0.3.0"
 ```
 
+### Check if you are able to ping windows ansible node
+You may have to modify the IP Address, login credentials of Windows Node.
+```
+cd devops-june-2021/Day4/windows
+ansible -i inventory windows -m win_ping
+```
+
+### Running the playbook to install softwares into windows ansible node
+```
+ansible-playbook -i inventory install-notepad-and-acrobatreader.yml
+```

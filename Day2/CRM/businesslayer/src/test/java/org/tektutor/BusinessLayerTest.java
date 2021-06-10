@@ -11,7 +11,7 @@ public class BusinessLayerTest {
 		BusinessLayer bl = new BusinessLayer();
 
 		String actualResponse   = bl.getModuleName();
-		String expectedResponse = "BusinessLayer Module";
+		String expectedResponse = "BusineLayer Module";
 
 		assertEquals ( expectedResponse, actualResponse );
 

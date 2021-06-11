@@ -13,20 +13,48 @@ pipeline {
 	  }
           stage('Compile') {
 		steps {
+			sh "pwd"
+			dir('Day5/JenkinsFilePipeline') {
+				sh "pwd"
+			}
+			sh "pwd"
+		}
+		steps {
 			sh 'mvn clean compile'
 		}
 	  }
           stage('Unit Test') {
+		steps {
+			sh "pwd"
+			dir('Day5/JenkinsFilePipeline') {
+				sh "pwd"
+			}
+			sh "pwd"
+		}
 		steps {
 			sh 'mvn test'
 		}
 	  }
           stage('Package') {
 		steps {
+			sh "pwd"
+			dir('Day5/JenkinsFilePipeline') {
+				sh "pwd"
+			}
+			sh "pwd"
+		}
+		steps {
 			sh 'mvn package'
 		}
 	  }
           stage('Install') {
+		steps {
+			sh "pwd"
+			dir('Day5/JenkinsFilePipeline') {
+				sh "pwd"
+			}
+			sh "pwd"
+		}
 		steps {
 			sh 'mvn install'
 		}

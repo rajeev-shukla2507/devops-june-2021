@@ -139,7 +139,7 @@ systemctl status grafana-server
 #### Accessing Grafana Dashboard
 From your lab web server, you may access Grafana at the URL http://localhost:3000
 
-##### Login Credentials
+###### Login Credentials
 ```
 username - admin
 password - admin

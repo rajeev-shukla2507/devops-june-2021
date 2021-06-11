@@ -1,5 +1,6 @@
-### Installing Prometheus
+All the instructions must be done as an adminstrative(root) user.
 
+### Installing Prometheus
 ```
 sudo su -
 yum update -y
@@ -12,12 +13,12 @@ setenforce 0
 For permanently disabling selinux, edit /etc/sysconfig/selinux and update "SELINUX=enforcing" to "SELINUX=disabled"
 
 
-Create a Prometheus user
+#### Create a Prometheus user
 ```
 useradd --no-create-home --shell /bin/false prometheus
 ```
 
-Create prometheus required folders
+#### Create prometheus required folders
 ```
 mkdir /etc/prometheus
 mkdir /var/lib/prometheus
@@ -25,7 +26,7 @@ chown prometheus:prometheus /etc/prometheus
 chown prometheus:prometheus /var/lib/prometheus
 ```
 
-Download Prometheus and extract the tar gunzip file
+#### Download Prometheus and extract the tar gunzip file
 ```
 yum install wget -y
 wget https://github.com/prometheus/prometheus/releases/download/v2.12.0/prometheus-2.12.0.linux-amd64.tar.gz
@@ -38,7 +39,7 @@ chown -R prometheus:prometheus /etc/prometheus/consoles
 chown -R prometheus:prometheus /etc/prometheus/console_libraries
 ```
 
-Configure Prometheus to collect metrics from Jenkins
+#### Configure Prometheus to collect metrics from Jenkins
 
 vim /etc/prometheus/prometheus.yml
 
@@ -68,7 +69,7 @@ Save the file and change ownership to prometheus user.
 chown prometheus:prometheus /etc/prometheus/prometheus.yml
 ```
 
-Create a Prometheus Service
+#### Create a Prometheus Service
 vim /etc/systemd/system/prometheus.service
 
 ```
@@ -100,11 +101,11 @@ Restart=always
 WantedBy=multi-user.target
 ```
 
-Start the prometheus service
+#### Start the prometheus service
 ```
 systemctl daemon-reload
 systemctl start prometheus-service
-ystemctl status prometheus
+systemctl status prometheus
 ```
 
 #### Access Prometheus from web browser on the lab machine
@@ -117,7 +118,7 @@ http://localhost:9090
 #### Create Grafana yum repo file
 vim /etc/yum.repos.d/grafana.repo
 ```
- [grafana]
+[grafana]
 name=grafana
 baseurl=https://packages.grafana.com/oss/rpm
 repo_gpgcheck=1
@@ -138,7 +139,6 @@ systemctl status grafana-server
 #### Accessing Grafana Dashboard
 From your lab web server, you may access Grafana at the URL http://localhost:3000
 
-Login Credentials
+##### Login Credentials
 username - admin
 password - admin
-

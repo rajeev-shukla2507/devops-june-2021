@@ -10,7 +10,7 @@ Disable SELinux
 ```
 setenforce 0
 ```
-For permanently disabling selinux, edit /etc/sysconfig/selinux and update "SELINUX=enforcing" to "SELINUX=disabled"
+For permanently disabling selinux, edit /etc/sysconfig/config and update "SELINUX=enforcing" to "SELINUX=disabled"
 
 
 #### Create a Prometheus user

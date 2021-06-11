@@ -16,6 +16,8 @@ RUN mkdir -p /root/.ssh
 COPY .bashrc /root/.bashrc
 RUN chmod 644 /root/.bashrc
 
+COPY settings.xml /usr/share/maven/settings.xml
+
 EXPOSE 22
 EXPOSE 80 
 CMD ["/usr/sbin/sshd", "-D"]

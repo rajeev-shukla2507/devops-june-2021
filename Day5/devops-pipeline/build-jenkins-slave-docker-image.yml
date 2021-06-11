@@ -1,6 +1,11 @@
 - name: This playbook will build a docker image which will later be used as Jenkins Slave machine for Maven builds.
   hosts: localhost
+
   tasks:
+     - name: Remove existing image
+       shell:  docker rmi -f tektutor/maven:latest
+       ignore_errors: yes
+
      - name: Build docker image 
        docker_image:
           docker_host: tcp://localhost:4243

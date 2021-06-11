@@ -105,7 +105,7 @@ WantedBy=multi-user.target
 ```
 systemctl daemon-reload
 systemctl start prometheus-service
-systemctl status prometheus
+systemctl status prometheus-service
 ```
 
 #### Access Prometheus from web browser on the lab machine

@@ -1,0 +1,12 @@
+- name: This playbook will build a docker image which will later be used as Jenkins Slave machine for Maven builds.
+  hosts: localhost
+  tasks:
+     - name: Build docker image 
+       docker_image:
+          docker_host: tcp://localhost:4243
+          name: tektutor/maven
+          source: build
+          state: present
+          build:
+            path: .
+            pull: false

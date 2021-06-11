@@ -13,12 +13,10 @@ pipeline {
 	  }
           stage('Compile') {
 		steps {
-			sh "pwd"
 			dir('Day5/JenkinsFilePipeline') {
 				sh "pwd"
+				sh 'mvn clean compile'
 			}
-			sh "pwd"
-			sh 'mvn clean compile'
 		}
 	  }
           stage('Unit Test') {

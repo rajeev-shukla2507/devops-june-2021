@@ -18,8 +18,6 @@ pipeline {
 				sh "pwd"
 			}
 			sh "pwd"
-		}
-		steps {
 			sh 'mvn clean compile'
 		}
 	  }
@@ -30,8 +28,6 @@ pipeline {
 				sh "pwd"
 			}
 			sh "pwd"
-		}
-		steps {
 			sh 'mvn test'
 		}
 	  }
@@ -42,8 +38,6 @@ pipeline {
 				sh "pwd"
 			}
 			sh "pwd"
-		}
-		steps {
 			sh 'mvn package'
 		}
 	  }
@@ -54,8 +48,6 @@ pipeline {
 				sh "pwd"
 			}
 			sh "pwd"
-		}
-		steps {
 			sh 'mvn install'
 		}
 	  }

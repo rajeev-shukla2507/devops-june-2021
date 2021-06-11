@@ -6,7 +6,7 @@ pipeline {
 	jdk 'JAVA11'
      }
      stages {
-          stage {
+          stage('Clone') {
 		git url: 'https://github.com/tektutor/devops-june-2021.git'
 	  }
           stage('Compile') {

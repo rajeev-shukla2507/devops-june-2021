@@ -21,40 +21,12 @@ formatTreeString(
     pom.xml
     children: [
       {
-    	src
-       },
-      {
-        text: 'third',
-        children: [
-          {
-            text: 'fourth',
-            extra: 'yet'
-          },
-          {
-            text: 'fifth'
-          },
-          {
-            text: 'sixth',
-            extra: 'another',
-            children: [
-              {
-                text: 'seventh',
-                extra: 'one'
-              },
-              {
-                text: 'eighth',
-                extra: 'look',
-                children: [
-                  {
-                    text: 'ninth',
-                    extra: 'another'
-                  },
-                  {
-                    text: 'tenth',
-                    extra: 'one'
-                  }
-                ]
-};
+    	text: src
+       }
+    ]
+  }
+  );
+  
 .
 ├── pom.xml
 └── src

@@ -55,6 +55,17 @@ This will list containers even if they are in 'Exited' state.
 docker ps -a
 ```
 
+### Listing containers with a specific name pattern
+```
+docker ps --filter="name=ubuntu"
+docker ps --filter="name=ubu"
+```
+
+### Deleting containers matching a spectific name pattern
+```
+docker rm -f $(docker ps -q --filter="name=ubuntu")
+```
+
 ### Renaming a container
 ```
 docker ps
@@ -120,7 +131,6 @@ docker network create my-network-2
 ```
 docker run -dit --name c2 --hostname c2 --network=my-network-2 ubuntu:16.04 bash
 ```
-
 
 ### Find IP Address of c2 container
 ```

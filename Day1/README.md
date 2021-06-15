@@ -16,20 +16,7 @@ tree
 
 The output should look as shown below
 [jegan@tektutor Hello]$ tree
-formatTreeString(
-  {
-    pom.xml
-    children: [
-      {
-    	text: src
-       }
-    ]
-  },
-   {
-    guideFormat: chalk.dim
-  } 
-  );
-  
+...
 .
 ├── pom.xml
 └── src
@@ -43,7 +30,7 @@ formatTreeString(
             └── org
                 └── tektutor
                     └── HelloTest.java
-                    
+...                    
 
 ### Create a pom.xml under Hello folder with the below content
 ```

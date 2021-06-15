@@ -55,18 +55,14 @@ The output should look as shown below
 package org.tektutor;
 
 public class Hello {
-
 	public String sayHello() {
 		return "Hello DevOps!";
 	}
 
 	public static void main(String[] args) {
-		
 		Hello hello = new Hello();
 		System.out.println ( hello.sayHello() );
-
 	}
-
 }
 ```
 
@@ -109,7 +105,7 @@ mvn clean compile
 Update your pom.xml as shown 
 ```
 <project>
-	
+
 	<modelVersion>4.0.0</modelVersion>
 
 	<properties>

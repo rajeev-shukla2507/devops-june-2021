@@ -16,7 +16,7 @@ tree
 
 The output should look as shown below
 [jegan@tektutor Hello]$ tree
-...
+...bash
 .
 ├── pom.xml
 └── src

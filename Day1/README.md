@@ -16,7 +16,7 @@ tree
 
 The output should look as shown below
 [jegan@tektutor Hello]$ tree
-...bash
+<pre>
 .
 ├── pom.xml
 └── src
@@ -30,7 +30,7 @@ The output should look as shown below
             └── org
                 └── tektutor
                     └── HelloTest.java
-...                    
+</pre>                  
 
 ### Create a pom.xml under Hello folder with the below content
 ```

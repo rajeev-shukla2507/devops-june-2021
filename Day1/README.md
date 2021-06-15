@@ -24,7 +24,10 @@ formatTreeString(
     	text: src
        }
     ]
-  }
+  },
+   {
+    guideFormat: chalk.dim
+  } 
   );
   
 .
